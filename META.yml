@@ -1,6 +1,6 @@
 ---
 name: Tkx-Scrolled
-version: 0.02
+version: 0.03
 author:
   - 'Michael J. Carman <mjcarman@cpan.org>'
 abstract: Tkx megawidget for scrolled widgets
@@ -14,7 +14,7 @@ build_requires:
 provides:
   Tkx::Scrolled:
     file: lib/Tkx/Scrolled.pm
-    version: 0.02
+    version: 0.03
 generated_by: Module::Build version 0.31
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
