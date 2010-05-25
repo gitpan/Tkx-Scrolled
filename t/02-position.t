@@ -17,24 +17,23 @@ my @positions = (
 	[nw   => 1],
 	[se   => 1],
 	[sw   => 1],
-	[nn   => 0],
-	[ns   => 0],
-	[ew   => 0],
-	[ee   => 0],
+	[nn   => undef],
+	[ns   => undef],
+	[ew   => undef],
+	[ee   => undef],
 	[en   => 1],
 	[ws   => 1],
-	[nne  => 0],
-	[swen => 0],
+	[nne  => undef],
+	[swen => undef],
 	[on   => 1],
 	[ow   => 1],
 	[one  => 1],
 	[now  => 1],
 	[osoe => 1],
-	[oos  => 0],
+	[oos  => undef],
 );
 
 foreach my $p (@positions) {
-	eval { $mw->new_tkx_Scrolled('text', -scrollbars => $p->[0]) };
-	my $r = $@ ? 0 : 1;
-	is($r, $p->[1], "'-scrollbars => '" . $p->[0] . "'");
+	my $r = eval { $mw->new_tkx_Scrolled('text', -scrollbars => $p->[0]); 1 };
+	is($r, $p->[1], "-scrollbars => '$p->[0]'");
 }

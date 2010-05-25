@@ -6,7 +6,12 @@ use Tkx;
 use Tkx::Scrolled;
 
 my $mw = Tkx::widget->new('.');
-my $w  = $mw->new_tkx_Scrolled('text');
+my $w  = $mw->new_tkx_Scrolled('text',
+	-width  => 5,
+	-height => 5,
+	-wrap   => 'none',
+);
+$w->g_pack();
 
 $mw->g_wm_withdraw();  # hide the mainwindow
 
@@ -18,6 +23,9 @@ my $text = "The quick brown fox jumped over the lazy dog.\n";
 $w->insert('end', $text) for 1 .. 10;
 
 is($w->get('1.0', '2.0'), $text, 'insert/get delegated to text widget');
+
+$w->_kid('xscrollbar')->set(0, 1);
+$w->_kid('yscrollbar')->set(0, 1);
 
 is($w->_kid('xscrollbar')->get(), '0 1', 'xscrollbar before moveto');
 is($w->_kid('yscrollbar')->get(), '0 1', 'yscrollbar before moveto');
